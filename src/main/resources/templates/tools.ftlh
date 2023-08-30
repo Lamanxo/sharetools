@@ -21,12 +21,15 @@
 </#list>
 <hr>
 <hr3>Add new Household tool</hr3>
-<form action="/tool/create" method="post">
+<form action="/tool/create" method="post" enctype="multipart/form-data">
     Tool name: <input type="text" name="title"/><br><br>
     Tool description: <input type="text" name="description"/><br><br>
     Tool owner: <input type="text" name="owner"/><br><br>
     Tool price: <input type="number" name="price"/><br><br>
     Tool address: <input type="text" name="address"/><br><br>
+    Photo 1 : <input type="file" name="file1"/><br><br>
+    Photo 2 : <input type="file" name="file2"/><br><br>
+    Photo 3 : <input type="file" name="file3"/><br><br>
     <input type="submit" value="Add tool"/>
 </form>
 </body>
