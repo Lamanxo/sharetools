@@ -4,7 +4,7 @@
     <title>SHARE TOOLS</title>
 </head>
 <body>
-<h1> Share tools app </h1>
+<h1> Share tools app | <a href="/login">Log in</a> </h1>
 <hr>
 <h3> All available tools</h3>
 <form action="/" method="get">

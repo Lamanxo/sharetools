@@ -1,7 +1,7 @@
 package com.example.ShareTools.model;
 
 import com.example.ShareTools.model.enums.Role;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
