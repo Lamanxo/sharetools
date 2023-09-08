@@ -36,6 +36,11 @@ public class UserController {
         return "hello";
     }
 
+    @GetMapping("/tamer")
+    public String securityUrlTwo() {
+        return "tamer";
+    }
+
     @GetMapping("/registration")
     public String registration() {
         return "registration";

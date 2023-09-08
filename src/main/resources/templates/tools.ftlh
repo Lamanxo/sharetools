@@ -5,7 +5,11 @@
 </head>
 <body>
 <h1> Share tools app | <a href="/login">Log in</a> </h1>
-<hr>
+<form action="/logout" method="post">
+    <input type="hidden" name="_csrf" value="${_csrf.token}">
+    <input type="submit" value="logout"/>
+</form>
+
 <h3> All available tools</h3>
 <form action="/" method="get">
     Search by title: <input type="text" name="title"/><br>
