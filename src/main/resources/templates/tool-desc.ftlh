@@ -13,6 +13,7 @@
 <b>Tool name: </b>${tool.title}<br>
 <b>Tool description: </b>${tool.description}<br>
 <b>Tool owner: </b>${tool.user.name}<br>
+<b>Owner number: </b>${tool.user.phoneNumber}<br>
 <b>Tool address: </b>${tool.address}<br>
 <hr>
 </body>
