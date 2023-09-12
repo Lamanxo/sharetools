@@ -1,7 +1,7 @@
 package com.example.ShareTools.controllers;
 
 import com.example.ShareTools.model.HouseholdTool;
-import com.example.ShareTools.service.ToolService;
+import com.example.ShareTools.service.ToolServiceDb;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,17 +12,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.security.Principal;
 
 @Controller
 @RequiredArgsConstructor
 public class ToolsController {
 
-    private final ToolService toolService;
+    private final ToolServiceDb toolService;
 
     @GetMapping("/")
     public String tools(Model model,
-                        @RequestParam (name = "title", required = false) String title) {
+                        @RequestParam (name = "title", required = false) String title, Principal principal) {
         model.addAttribute("tools", toolService.searchByTitle(title));
+        model.addAttribute("user", toolService.getUserByPrincipal(principal));
         return "tools";
     }
     @GetMapping("/tool/{id}")
@@ -37,8 +39,8 @@ public class ToolsController {
     public String createTool(@RequestParam MultipartFile file1,
                              @RequestParam MultipartFile file2,
                              @RequestParam MultipartFile file3,
-                             HouseholdTool tool) throws IOException {
-        toolService.addTool(tool, file1, file2, file3);
+                             HouseholdTool tool, Principal principal) throws IOException {
+        toolService.addTool(principal, tool, file1, file2, file3);
         return "redirect:/";
     }
 

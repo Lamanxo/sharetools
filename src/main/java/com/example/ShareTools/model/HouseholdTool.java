@@ -28,8 +28,6 @@ public class HouseholdTool {
     private Double price;
     @Column(name = "address")
     private String address;
-    @Column(name = "owner")
-    private String owner;
     @Column(name = "available")
     private boolean available;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "tool")
@@ -38,6 +36,9 @@ public class HouseholdTool {
     private Long defaultImageId;
     @Column(name = "created")
     private LocalDateTime created;
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @JoinColumn
+    User user;
 
     @PrePersist
     private void init() {
@@ -53,12 +54,12 @@ public class HouseholdTool {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        HouseholdTool that = (HouseholdTool) o;
-        return available == that.available && Objects.equals(id, that.id) && Objects.equals(title, that.title) && Objects.equals(description, that.description) && Objects.equals(price, that.price) && Objects.equals(address, that.address) && Objects.equals(owner, that.owner) && Objects.equals(images, that.images) && Objects.equals(defaultImageId, that.defaultImageId) && Objects.equals(created, that.created);
+        HouseholdTool tool = (HouseholdTool) o;
+        return available == tool.available && Objects.equals(id, tool.id) && Objects.equals(title, tool.title) && Objects.equals(description, tool.description) && Objects.equals(price, tool.price) && Objects.equals(address, tool.address) && Objects.equals(images, tool.images) && Objects.equals(defaultImageId, tool.defaultImageId) && Objects.equals(created, tool.created) && Objects.equals(user, tool.user);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, description, price, address, owner, available, images, defaultImageId, created);
+        return Objects.hash(id, title, description, price, address, available, images, defaultImageId, created, user);
     }
 }
