@@ -12,9 +12,9 @@
 </#list>
 <b>Tool name: </b>${tool.title}<br>
 <b>Tool description: </b>${tool.description}<br>
-<b>Tool owner: </b>${tool.user.name}<br>
-<b>Owner number: </b>${tool.user.phoneNumber}<br>
 <b>Tool address: </b>${tool.address}<br>
+<b>Tool owner: </b><a href="/user/${tool.user.id}">${tool.user.name}</a><br>
+<a href="/">Home</a>
 <hr>
 </body>
 </html>

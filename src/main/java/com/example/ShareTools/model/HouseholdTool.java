@@ -36,9 +36,9 @@ public class HouseholdTool {
     private Long defaultImageId;
     @Column(name = "created")
     private LocalDateTime created;
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     @JoinColumn
-    User user;
+    private User user;
 
     @PrePersist
     private void init() {

@@ -45,4 +45,12 @@ public class UserController {
     public String registration() {
         return "registration";
     }
+
+    @GetMapping("/user/{user}")
+    public String userInfo(User user, Model model) {
+        model.addAttribute("user", user);
+        model.addAttribute("tools", user.getTools());
+        return "user-info";
+    }
+
 }

@@ -1,9 +1,9 @@
 package com.example.ShareTools.model;
 
-import javax.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
 
+import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -29,6 +29,8 @@ public class Image {
     @Column(name = "isdefaultimage")
     private boolean isDefaultImage;
     @Lob
+    /*@Basic(fetch = FetchType.EAGER)
+    @Column(name = "bytes", columnDefinition = "BLOB")*/
     private byte[] bytes;
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     private HouseholdTool tool;

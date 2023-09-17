@@ -11,12 +11,12 @@
         <input type="hidden" name="_csrf" value="${_csrf.token}">
         <input type="submit" value="logout"/>
     </form>
+    <#if user.isAdmin()>
+        <a href="/admin">Control panel</a>
+    </#if>
 <#else>
     <a href="/login">Log in</a> </h1>
 </#if>
-
-
-
 <h3> All available tools</h3>
 <form action="/" method="get">
     Search by title: <input type="text" name="title"/><br>

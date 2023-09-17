@@ -46,6 +46,10 @@ public class User implements UserDetails {
     @Column(name = "createdate")
     LocalDateTime createDate;
 
+    public boolean isAdmin() {
+        return roles.contains(Role.ROLE_ADMIN);
+    }
+
     @PrePersist
     void init() {
         createDate = LocalDateTime.now();
